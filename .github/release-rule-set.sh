@@ -16,5 +16,4 @@ function releaseRuleSet() {
     popd
 }
 
-releaseRuleSet rule-set
-releaseRuleSet rule-set-unstable
+releaseRuleSet rule-set-filtered
