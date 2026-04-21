@@ -22,3 +22,13 @@ jobs:
           NO_SKIP: true
         run: |
           go run -v .
+      - name: Release filtered rule sets
+        if: steps.build.outputs.skip != 'true'
+        run: .github/release-rule-set.sh
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Release release branch
+        if: steps.build.outputs.skip != 'true'
+        run: .github/release-branch.sh
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
